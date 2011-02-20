@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class Game(object):
     '''The main code for running the game.'''
 
@@ -16,7 +14,7 @@ class Game(object):
             for event in self.location.events:
                 self.health += event.process()
                 if self.health <= 0:
-                    print 'ThatÕs it for you!'
+                    print "That's it for you!"
                     exit(1)
 
             print 'Health: %d' % self.health
