@@ -12,6 +12,6 @@ class Event(object):
         '''Process the event, and return the change in health, or 0.'''
 
         if random() < self.probability:
-            print self.message
+            print(self.message)
             return self.healthChange
         return 0
