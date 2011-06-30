@@ -9,8 +9,10 @@ class ShipGame(Game):
 Welcome to Ship Adventure. You are the captain of a star ship.
         '''
 
-        bridge = Place('Bridge', "You are on the bridge of a spaceship, sitting in the captain's chair.", (
-            Event(0.2, 'An intruder beams onto the bridge and shoots you.', -50),
+        bridge = Place('Bridge', 
+            "You are on the bridge of a spaceship, sitting in the captain's chair.", 
+            (
+            Event(0.01, 'An intruder beams onto the bridge and shoots you.', -50, maxOccur = 1),
             Event(0.1, "The ship's doctor gives you a health boost.", 30),
             ))
 
