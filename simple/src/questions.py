@@ -8,13 +8,19 @@ qas = [
 ]
 shuffle(qas)
 numRight = 0
+wrong = []
 
-for question, rightAnswer in qas:
+numQuestions = int(input("How many questions? "))
+
+for question, rightAnswer in qas[:numQuestions]:
     answer = input(question + ' ')
     if answer.lower() == rightAnswer:
         print('Right!')
         numRight += 1
     else:
         print('No, the answer is %s.' % rightAnswer)
+        wrong.append(question)
 
-print('You got %d right and %d wrong.' % (numRight, len(qas) - numRight))
+print('You got %d right and the following wrong:' % (numRight))
+for q in wrong:
+    print(q)
