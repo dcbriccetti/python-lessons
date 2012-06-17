@@ -7,4 +7,4 @@ def getNumeric(prompt):
             print("Please enter a number.")
 
 age = getNumeric('What is your age? ')
-print(age * 2)
+print(age)
