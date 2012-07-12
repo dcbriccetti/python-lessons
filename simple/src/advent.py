@@ -2,9 +2,9 @@ import random, sys
 
 places = ('airstrip', 'forest', 'cave')
 transitions = {
-    'airstrip' : ('forest',),
-    'forest' : ('airstrip', 'cave'),
-    'cave' : ('forest',),
+    'airstrip': ('forest',),
+    'forest': ('airstrip', 'cave'),
+    'cave': ('forest',),
 }
 place = random.choice(places)
 
