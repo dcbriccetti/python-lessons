@@ -16,7 +16,7 @@ pygame.init()
 screen = pygame.display.set_mode((500, 100), 0)
 screen.fill((0, 60, 0))
 
-#you write a call to draw_shapes, passing it what it needs
+# you write a call to draw_shapes, passing it what it needs
 
 pygame.display.flip()
 
