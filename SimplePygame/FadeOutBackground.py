@@ -17,16 +17,9 @@ while loop:
             or (event.type == KEYDOWN and event.key == K_ESCAPE):
             loop = False
 
-    keystate = pygame.key.get_pressed()
-    if keystate[K_RIGHT]:
+    if pygame.key.get_pressed()[K_RIGHT]:
         bgsound.fadeout(5000)
         beeX += 5
-    if keystate[K_LEFT]:
-        beeX -= 5
-    if keystate[K_UP]:
-        beeY -= 5
-    if keystate[K_DOWN]:
-        beeY += 5
 
     screen.fill((0,180,0))
     screen.blit(bee, (beeX, beeY))
