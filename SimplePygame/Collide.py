@@ -3,11 +3,11 @@ from pygame.locals import *
 
 pygame.init()
 screen = pygame.display.set_mode((600, 400), 0)
-pygame.display.set_caption('Simple Pygame Game')
-bee = pygame.image.load('bee1.png').convert_alpha()
+pygame.display.set_caption('Collision Detection Demo')
+bee = pygame.image.load('bee1.png')
 beeRect = bee.get_rect()
 beeRect.topleft = (0, 0)
-bird = pygame.image.load('bird.png').convert_alpha()
+bird = pygame.image.load('bird.png')
 birdRect = bird.get_rect()
 birdRect.topleft = (100, 200)
 
@@ -18,23 +18,23 @@ while loop:
             or (event.type == KEYDOWN and event.key == K_ESCAPE):
             loop = False
 
-    keystate = pygame.key.get_pressed()
-    if keystate[K_RIGHT]:
+    keys = pygame.key.get_pressed()
+    if keys[K_RIGHT]:
         beeRect = beeRect.move(5, 0)
-    if keystate[K_LEFT]:
+    if keys[K_LEFT]:
         beeRect = beeRect.move(-5, 0)
-    if keystate[K_UP]:
+    if keys[K_UP]:
         beeRect = beeRect.move(0, -5)
-    if keystate[K_DOWN]:
+    if keys[K_DOWN]:
         beeRect = beeRect.move(0, 5)
 
-    if keystate[K_d]:
+    if keys[K_d]:
         birdRect = birdRect.move(5, 0)
-    if keystate[K_a]:
+    if keys[K_a]:
         birdRect = birdRect.move(-5, 0)
-    if keystate[K_w]:
+    if keys[K_w]:
         birdRect = birdRect.move(0, -5)
-    if keystate[K_s]:
+    if keys[K_s]:
         birdRect = birdRect.move(0, 5)
         
     if birdRect.colliderect(beeRect):
