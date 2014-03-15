@@ -6,8 +6,7 @@ class ShipGame(Game):
     def __init__(self):
         super(ShipGame, self).__init__()
         self.introduction = '''
-Welcome to Ship Adventure. You are the captain of a star ship.
-        '''
+Welcome to Ship Adventure. You are the captain of a star ship. '''
 
         bridge = Place('Bridge', 
             "You are on the bridge of a spaceship, sitting in the captain's chair.", 

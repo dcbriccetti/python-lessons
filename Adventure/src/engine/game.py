@@ -8,7 +8,7 @@ class Game(object):
         print(self.introduction)
 
         while True:
-            print
+            print()
             print(self.location.description)
 
             for event in self.location.events:
