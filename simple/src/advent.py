@@ -1,17 +1,18 @@
 import random, sys
 
-places = ('airstrip', 'forest', 'cave')
+places = ('airstrip', 'forest', 'cave', 'meadow')
 transitions = {
     'airstrip': ('forest',),
     'forest': ('airstrip', 'cave'),
-    'cave': ('forest',),
+    'cave': ('forest', 'meadow'),
+    'meadow': ('cave',),
 }
 place = random.choice(places)
 
 while True:
-    print('You are at the ' + place)
+    print('You are at the', place)
     destinations = transitions[place]
-    print('From here you can go to ' + ', '.join(destinations))
+    print('From here you can go to', ', '.join(destinations))
     newDest = input('Where would you like to go? ')
     if newDest == 'quit':
         break
@@ -20,5 +21,11 @@ while True:
             print('You were struck by lightning. Game over.')
             sys.exit()
         place = newDest
+        if place == 'meadow':
+            if random.randint(1,2) == 1:
+                print('You fell in a hole and you are stuck.')
+                sys.exit()
+            if random.randint(1,2) == 1:
+                print('You discover an amazing treasure!')
     else:
         print("You can't go there.")
