@@ -1,5 +1,5 @@
 import pygame
-from pygame.constants import FULLSCREEN, KEYDOWN, K_ESCAPE, K_UP, K_DOWN, QUIT
+from pygame.constants import KEYDOWN, K_ESCAPE, K_UP, K_DOWN, QUIT
 from stars import draw_field
 
 pg = pygame
@@ -7,14 +7,13 @@ pd = pg.display
 pg.init()
 pd.set_caption("Approaching a Class M Planet")
 pg.key.set_repeat(1, 20)
-screen = pd.set_mode((0, 0), FULLSCREEN)
+screen = pd.set_mode((1280, 700))
 sr = screen.get_rect()
 planet = pg.image.load('planet.png')
 star_field = screen.copy()
 draw_field(star_field)
 
 clock = pygame.time.Clock()
-run = True
 
 planet_size = sr.width / 20
 planet_size_increment = max(5, sr.width / 500)
