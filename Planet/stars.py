@@ -20,5 +20,5 @@ def draw_field(star_field):
         elif ri == 3: # Make yellower (red + green)
             redder = greener = randint(0, 255 - gray)
 
-        pg.draw.circle(star_field, (gray + redder, gray + greener, gray + bluer), \
+        pg.draw.circle(star_field, (gray + redder, gray + greener, gray + bluer),
                        (randint(0, sr.width), randint(0, sr.height)), max(0, int(gauss(1, 1))))
