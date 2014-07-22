@@ -50,8 +50,8 @@ def process_input():
         frame_rate -= 10 if shift else 1
     if frame_rate < 1:
         frame_rate = 1
-    if side_length < 1:
-        side_length = 1
+    if side_length < 2:
+        side_length = 2
     return changed
 
 while loop:
