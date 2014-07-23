@@ -1,3 +1,4 @@
+from time import time
 import pygame
 from pygame.locals import *
 from bee import Bee
@@ -38,6 +39,8 @@ angles = (( 45,   0,  -45),
 
 # game loop
 loop = True
+time_last_fire = 0
+
 while loop:
     # get input
     for event in pygame.event.get():
@@ -46,10 +49,18 @@ while loop:
             loop = False
 
     keystate = pygame.key.get_pressed()
+    mods = pygame.key.get_mods()
+    shift = mods & KMOD_SHIFT
+
     if keystate[K_SPACE]:
-        projectile = Projectile(player_bee.rect.x, player_bee.rect.y)
-        drawing_group.add(projectile)
-        projectiles.add(projectile)
+        time_now = time()
+        time_since_fire = time_now - time_last_fire
+        if time_since_fire > (.2 if shift else .5):
+            time_last_fire = time()
+            projectile = Projectile(player_bee.rect.x + player_bee.rect.width / 2,
+                player_bee.rect.y)
+            drawing_group.add(projectile)
+            projectiles.add(projectile)
 
     xdir = keystate[K_RIGHT] - keystate[K_LEFT]   # -1, 0, or 1
     ydir = keystate[K_DOWN]  - keystate[K_UP]
