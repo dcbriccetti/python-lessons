@@ -51,7 +51,7 @@ while loop:
             loop = False
 
     if randint(1, 800) == 1:
-        monster = Monster(screen_rect)
+        monster = Monster(screen_rect, drawing_group)
         drawing_group.add(monster)
 
     keystate = pygame.key.get_pressed()
