@@ -1,12 +1,12 @@
 import random, sys
 
-places = ('airstrip', 'forest', 'cave', 'meadow')
 transitions = {
     'airstrip': ('forest',),
     'forest': ('airstrip', 'cave'),
     'cave': ('forest', 'meadow'),
     'meadow': ('cave',),
 }
+places = tuple(transitions.keys())
 place = random.choice(places)
 
 while True:
