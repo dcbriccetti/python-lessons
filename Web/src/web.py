@@ -1,24 +1,27 @@
-import http.server
-import socketserver
-from random import randint
+from random import choice
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
 
-class RequestHandler(http.server.SimpleHTTPRequestHandler):
-    def write(self, s): self.wfile.write(bytes(s, "utf-8"))
+class RequestHandler(SimpleHTTPRequestHandler):
+
+    def write(self, s):
+        self.wfile.write(bytes(s, "utf-8"))
+
     def do_GET(self):
-        print(self.path)
         if self.path == "/":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/html')
+            self.send_header('Content-Type', 'text/plain')
             self.end_headers()
+            user_agent = self.headers.get('User-Agent')
+            messages = ('Have a nice day', 'So long', 'Come again soon')
             self.write("""
-<html>
-    <body>
-        Your random number is %d
-    </body>
-</html>""" % randint(1, 100))
+Hello person from %s.
+Your user agent is %s.
+%s.
+""" % (self.client_address[0], user_agent or "unknown", choice(messages)))
             return
         
-        http.server.SimpleHTTPRequestHandler.do_GET(self)
+        SimpleHTTPRequestHandler.do_GET(self)
     
-httpd = socketserver.TCPServer(("", 8000), RequestHandler)
+httpd = TCPServer(("", 8000), RequestHandler)
 httpd.serve_forever()
