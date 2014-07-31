@@ -1,4 +1,4 @@
-import random
+from random import random
 
 # Ask the user how many tosses to make and store the answer in numTosses
 numTosses = int(input('How many tosses? '))
@@ -7,7 +7,7 @@ numTosses = int(input('How many tosses? '))
 numHeads = 0
 numTails = 0
 for t in range(numTosses):
-    if random.random() < .5:
+    if random() < .5:
         numHeads += 1
     else:
         numTails += 1
