@@ -7,6 +7,7 @@ pygame.display.set_caption('Simple Pygame Game')
 bee = pygame.image.load('bee1.png').convert_alpha()
 beeX = 0
 beeY = 0
+clock = pygame.time.Clock()
 
 loop = True
 while loop:
@@ -22,5 +23,6 @@ while loop:
     screen.fill((0,120,0))
     screen.blit(bee, (beeX, beeY))
     pygame.display.flip()
+    clock.tick(60)
 
 pygame.quit()
