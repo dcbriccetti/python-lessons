@@ -20,6 +20,7 @@ pygame.display.flip()
 
 invaders = pygame.sprite.Group()
 projectiles = pygame.sprite.Group()
+monsters = pygame.sprite.Group()
 
 drawing_group = pygame.sprite.OrderedUpdates()
 player_bee = Bee(10, screen.get_height() - 200)
@@ -53,6 +54,7 @@ while loop:
     if randint(1, 800) == 1:
         monster = Monster(screen_rect, drawing_group)
         drawing_group.add(monster)
+        monsters.add(monster)
 
     keystate = pygame.key.get_pressed()
     mods = pygame.key.get_mods()
@@ -75,6 +77,7 @@ while loop:
     player_bee.rect = player_bee.rect.move((xdir * 8, ydir * 8)).clamp(screen_rect)
 
     pygame.sprite.groupcollide(projectiles, invaders, True, True)
+    pygame.sprite.groupcollide(projectiles, monsters, True, True)
 
     drawing_group.clear(screen, background)
     drawing_group.update()
