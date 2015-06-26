@@ -1,3 +1,5 @@
+# Run this, then in your web browser, go to http://localhost:8080/quote or http://localhost:8080/joke
+
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from random import choice
 
@@ -9,12 +11,23 @@ quotes = (
     "I don't know how many of you have ever met Dijkstra, but you probably know that arrogance in computer science is measured in nano-Dijkstras. - Alan Kay"
 )
 
+jokes = (
+    'Why did the chicken cross the road? To get to the other side.',
+)
+
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        html = "<html><body><h1>%s</h1></body></html>" % choice(quotes)
+        category = quotes if self.path == '/quote' else jokes
+        html = """
+<html>
+    <body>
+        <h1 style='font-family: sans-serif; color: darkblue;'>%s</h1>
+    </body>
+</html>
+            """ % choice(category)
         self.wfile.write(html.encode("utf-8"))
 
 server = HTTPServer(('', 8080), Handler)
