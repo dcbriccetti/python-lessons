@@ -23,5 +23,5 @@ Your user agent is %s.
         
         SimpleHTTPRequestHandler.do_GET(self)
     
-httpd = TCPServer(("", 8000), RequestHandler)
+httpd = TCPServer(("", 8080), RequestHandler)
 httpd.serve_forever()

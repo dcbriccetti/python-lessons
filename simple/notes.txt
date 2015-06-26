@@ -1,1 +1,0 @@
-http://nbviewer.ipython.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb
