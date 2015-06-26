@@ -1,0 +1,25 @@
+<game startingPlace='forest' serverHost='localhost' serverPort='2000'>
+
+	<place name='forest' 
+		description='You are in the middle of a dark forest.
+Strange creatures howl in the distance.'>
+		<object name='magic acorn'/>
+		<object name='codebook'/>
+		<object name='bicycle'/>
+		<connection place='airstrip'/>
+		<connection place='waterfall'/>
+	</place>
+
+	<place name='airstrip' 
+		description='You are at the airstrip. The place is covered with weeds.'>
+		<object name='propeller'/>
+		<connection place='forest'/>
+	</place>
+
+	<place name='waterfall' 
+		description='The waterfall makes a deafening sound.'>
+		<object name='fish'/>
+		<connection place='forest'/>
+	</place>
+
+</game>

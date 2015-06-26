@@ -1,0 +1,38 @@
+Homework 3.5
+
+Due Tues, Mar 16, 5pm (email to daveb@davebsoft.com, all in a single email with no attachments)
+Late homework will not be accepted.
+
+1. Write a program to prompt for strings and store them in a list. Shuffle the list and display
+it in its new order. 
+
+2. Create two class rosters (lists) of student names, by prompting for all the names. 
+
+Have the program display both rosters, and then display the names of any students who are in 
+both classes. Use this approach: Loop over the elements of the first list, and see if each is 
+also in the second list. If it is, display it.
+
+Here's the output from my solution:
+
+----------------------
+Math class
+Enter names, one per line. Give an empty name when done.
+==> dave
+==> sue
+==> tim
+==> 
+English class
+Enter names, one per line. Give an empty name when done.
+==> sue
+==> steve
+==> pete
+==> 
+Math class: ['dave', 'sue', 'tim']
+English class: ['sue', 'steve', 'pete']
+In both classes:
+sue
+----------------------
+
+My solution uses a function to fetch the list of names. Extra credit if yours does.
+
+3. Practice your presention(s)

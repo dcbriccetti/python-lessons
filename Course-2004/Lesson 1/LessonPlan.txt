@@ -1,0 +1,71 @@
+Computer Programming with Dave Briccetti
+Wed, Feb 4, 2004
+Introduction to Python
+
+Objective: To become familiar with Python
+
+Notes
+
+interactive mode
+
+setting variables and displaying their values (integers, reals, strings
+a=1
+a
+b=2
+a+b
+print a+b
+d=7.5
+name='Dave'
+
+prompting for input
+name = input('What is your name? ')
+health = int(input('Enter health value: '))
+dist = float(input('Enter distance: '))
+
+creating a program in a .py file
+
+formatted output
+print 'Total cost: $%.2f' % totalCost
+
+while loop
+while (guess != num)
+
+for loop, range function
+for n in range(1,11):
+	print n
+
+if statement
+if guess == num:
+	print "That's right!"
+else:
+	print "Wrong"
+
+math
+import math
+print math.pi
+
+Problems:
+
+1) Create a variable called health and give it a value of 100. Subtract 10 from it 
+and store the result in health.
+
+2) Prompt for age and store it in an integer variable
+
+3) Prompt for a distance and store it in a float variable
+
+4) Write a program to ask for an age in years and display the age in days 
+(assume 365 days per year)
+
+5) Write a program that displays how far a bike moves, given the diameter of
+a wheel, and the number of revolutions (prompt for the two values, as floats).
+
+6) Display the integers from 1 to 10, with their squares:
+1	1
+2	4
+3	9
+...
+
+6) Display the integers from -5 to 3
+
+7) Ask for an upper limit, and if the number entered is > 1 
+then display all the integers from 1 to that limit

@@ -1,0 +1,27 @@
+Homework 4
+
+Due Tues, Apr 6, 5pm (email to daveb@davebsoft.com, all in a single email with no attachments)
+Late homework will not be accepted.
+
+1. Write a program to do this:
+
+Prompt for a series of game character names and magical power values. Use a dictionary to store the data. The character name is the key, and the magical power is the value. Display the names of the characters with magic over 80. 
+
+Here's a sample run of my solution:
+
+Player name? Hemoglobin the Great Oxygenator
+Magic power value? 90
+Player name? Mitochondrion the Metabolizer
+Magic power value? 75
+Player name? 
+These characters have magic power values over 80:
+Hemoglobin the Great Oxygenator
+
+2. Find the equivalent of Python dictionaries in one or more of these other languages: Perl, C++, Java. Describe it briefly. Hint: this type of data structure is also known as an associative array, hash, or map.
+
+Useful websites:
+
+http://java.sun.com/docs/books/tutorial/collections/index.html
+http://www.perl.com/pub/a/2000/10/begperl1.html
+
+3. Why do you think I had you do the exercise in problem 2?

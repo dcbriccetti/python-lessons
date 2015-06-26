@@ -1,0 +1,11 @@
+Computer Programming with Dave Briccetti
+Wed, Apr 21, 2004, Introduction to Python, Concise Notes
+
+Outline
+
+1) Presentation of homework/show and tell
+2) XML
+3) TKinter
+4) TCP sockets
+
+

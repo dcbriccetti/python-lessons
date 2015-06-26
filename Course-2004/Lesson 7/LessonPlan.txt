@@ -1,0 +1,55 @@
+Computer Programming with Dave Briccetti
+Wed, May 5, 2004, Introduction to Python, Concise Notes
+
+Outline
+
+1) XML
+2) More from Lesson 6 if time permits
+
+
+from xml.dom.ext.reader.Sax import FromXmlFile
+from xml.dom.NodeFilter import NodeFilter
+
+root = FromXmlFile('problem1.xml')
+
+walker = root.createTreeWalker(root.documentElement,
+                              NodeFilter.SHOW_ELEMENT, None, 0)
+
+while 1:
+    nodeName = walker.currentNode.nodeName
+
+    if nodeName == 'game':
+        print "Hey, I found the game tag!"
+        
+    next = walker.nextNode()
+    
+    if next is None: break
+
+-----
+
+<game>
+</game>
+
+-----
+
+from xml.dom.ext.reader.Sax import FromXmlFile
+from xml.dom.NodeFilter import NodeFilter
+
+root = FromXmlFile('problem2.xml')
+walker = root.createTreeWalker(root.documentElement,
+                              NodeFilter.SHOW_ELEMENT, None, 0)
+
+while 1:
+    print walker.currentNode
+    print walker.currentNode.attributes
+    next = walker.nextNode()
+    if next is None: break
+
+-----
+
+<game title='Fun With Scissors'>
+<player name='Jim'/>
+<player name='Sue'/>
+</game>
+
+

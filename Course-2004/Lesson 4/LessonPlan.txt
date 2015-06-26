@@ -1,0 +1,40 @@
+Computer Programming with Dave Briccetti
+Wed, Mar 17, 2004, Introduction to Python, Concise Notes
+
+Topics:
+1) Dictionaries
+2) Applications of previous topics
+
+DICTIONARIES
+
+Creating a dictionary:
+d = dict() or d = {} or d = {'dave': 20, 'eric': 25}
+
+Adding:
+d['sam'] = 30
+
+Displaying all the keys:
+d.keys()
+
+Displaying all the values:
+d.values()
+
+Seeing if a key 'rice' is in a list:
+if 'rice' in d:
+
+Problem 1:
+Write a word counting program with a dictionary, which prompts for 
+words until an empty word is entered. For each word:
+
+If it is not in the dictionary, add an element with the word as
+the key, and 1 as the value.
+Else increment the value of the element with the word
+
+Finally, display the dictionary, display just the keys, and 
+display just the values.
+
+APPLICATIONS OF PREVIOUS TOPICS
+
+Problem 2:
+Create one or more programs of your own design, to apply elements
+of Pyton that you have learned.

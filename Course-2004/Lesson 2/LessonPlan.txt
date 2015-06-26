@@ -1,0 +1,107 @@
+Computer Programming with Dave Briccetti
+Wed, Feb 18, 2004
+Introduction to Python
+Concise Notes
+
+Topics:
+1) Functions
+2) Exceptions
+3) Classes
+4) GUI
+
+FUNCTIONS
+
+Example 1:
+def showIntro():
+    print "This is the exciting introduction ..."
+
+showIntro()
+
+Example 2:
+def addNumbers(num1, num2):
+    return num1 + num2
+
+sum = addNumbers(3,4)
+print sum
+
+Problem 1:
+Write a program with a function which prompts the user for a
+float, and returns it.
+
+EXCEPTIONS
+
+Example 3:
+try:
+    num = float(input('Give us a number: '))
+except ValueError:
+    print 'Bad number'
+
+Problem 2:
+Prompt for two numbers. Display the result of dividing the first
+number by the second. Prevent the program from "crashing" when
+the divisor is 0.
+
+CLASSES
+
+Example 4:
+class Robot:
+    def workOn(self, task):
+        print 'I am working on', task
+
+robot = Robot()
+robot.workOn('welding')
+
+Problem 3:
+Create a class called Calculator. Give it functions add, multiply
+and divide. Handle a divide by 0 error. 
+
+GUI
+
+Example 5:
+from Tkinter import *
+
+class Application(Frame):
+    def createWidgets(self):
+        self.quitButton = Button(self, text = 'Quit', command = self.quit)
+        self.quitButton.pack()
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+app = Application()
+app.mainloop()
+
+Example 6:
+from Tkinter import *
+
+class Application(Frame):
+    def greet(self):
+        if self.formal.get():
+            self.greeting.set('Hello. How are you?')
+        else:
+            self.greeting.set("What's up?")
+
+    def createWidgets(self):
+        self.formal = IntVar()
+        self.button = Checkbutton(self, text = 'Formal', variable = self.formal)
+        self.button.grid(row = 1, column = 1, columnspan = 2)
+        
+        self.greeting = StringVar()
+        self.greetingLabel = Label(self, textvariable = self.greeting)
+        self.greetingLabel.grid(row = 2, column = 1, columnspan = 2)
+        
+        self.quitButton = Button(self, text = 'Quit', command = self.quit)
+        self.quitButton.grid(row = 3, column = 1, padx = 5, pady = 5)
+
+        self.greetMeButton = Button(self, text = "Greet Me", command = self.greet)
+        self.greetMeButton.grid(row = 3, column = 2, padx = 5)
+
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.grid()
+        self.createWidgets()
+
+app = Application()
+app.master.title("My Cool Application")
+app.mainloop()

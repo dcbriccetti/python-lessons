@@ -1,0 +1,13 @@
+Homework 8
+Due June 1, 2004, 5 PM
+
+Do 0 or more of the following:
+
+1) Install Apache Web Server (www.apache.org) and get the Lesson 8 sample running
+
+2) Read about CGI with Python: http://python.org/doc/lib/module-cgi.html
+
+3) Get more experience with XML and Python
+
+4) Review all the class notes on TKinter
+

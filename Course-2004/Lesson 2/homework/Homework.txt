@@ -1,0 +1,47 @@
+Homework 3
+
+Due Tues, Mar 2, 5pm (email to daveb@davebsoft.com, all in a single email with no attachments)
+
+1. Considering what you've learned recently, say what is wrong with this program:
+
+num1 = float(input('Please enter a number: '))
+if num1 < 0:
+    num1 *= 2
+else:
+    num1 *= 3
+
+num2 = float(input('Please enter a number: '))
+if num2 < 0:
+    num2 *= 2
+else:
+    num2 *= 3
+
+print 'The result is', num1 + num2
+
+2. Rewrite the program in problem 1 to correct the most serious flaw.
+
+3. Write a function, getSpecialNum, to prompt for, and retrieve from the user, a number greater than 10. Here is what it might look like when you run it:
+
+Enter a number > 10: x
+That is not a number
+Enter a number > 10: 10
+That is not > 10
+Enter a number > 10: 10.1
+Thank you
+
+4. Why might it be useful to know how to write functions like that?
+
+5. Change your program from problem 3 so that the function is part of a class called InputCollector. To test the function, use the following code:
+
+inputCollector = InputCollector()
+inputCollector.getSpecialNum()
+
+6. Read pages 3-5 of http://www.nmt.edu/tcc/help/pubs/tkinter.pdf
+
+What does a geometry manager do?
+
+7. Look at this page: http://www.computerhistory.org/exhibits/highlights/alto.page
+
+Prepare a 30-60 second oral presentation on something related to this page. Learn the material thoroughly, and present from brief notes. The notes should remind you of key points you want to talk about. Come to class with your notes, fully prepared and ready to deliver the presentation in 30-60 seconds.
+
+Those of you who didn't deliver the last assigned presentation will be doing that one as well.

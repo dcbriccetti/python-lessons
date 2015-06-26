@@ -1,0 +1,35 @@
+Computer Programming with Dave Briccetti
+Wed, Mar 3, 2004, Introduction to Python, Concise Notes
+
+Topics:
+1) Lists
+
+LISTS
+
+Creating a list:
+l = list() or l = [] or l = [1,2,3] or l = ['rice', 'butter']
+
+Adding to a list:
+l.append('soup')
+
+Seeing if an element is in a list:
+if 'rice' in l:
+
+Accessing the elements of a list:
+for item in l:
+
+Problem 1:
+Write a program with a list, which prompts for words until an 
+empty word is entered. For each word:
+
+If it is already in the list, display a message to that effect
+Otherwise add it to the list
+
+Finally, display the list.
+
+Problem 2:
+Write a program to prompt for a series of numbers and store them
+in a list. For each element in the list, prompt the user for a 
+number to add to the first. Store the sums in a second list. At
+the end display the second list.
+

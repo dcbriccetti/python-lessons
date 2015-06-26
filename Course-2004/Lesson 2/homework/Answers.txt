@@ -1,0 +1,64 @@
+Homework 3 Answers
+
+1. The program has a block of almost identical code which is repeated. It should
+be "factored out" and put in a function.
+
+2. 
+
+def getNum():
+    num = float(input('Please enter a number: '))
+    if num < 0:
+        num *= 2
+    else:
+        num *= 3
+    return num
+
+num1 = getNum()
+num2 = getNum()
+
+print 'The result is', num1 + num2
+
+
+3. 
+
+def getSpecialNum():
+    while 1:
+        try:
+            num = float(input('Enter a number > 10: '))
+            if num > 10:
+                break
+            
+            print 'That is not > 10'
+                
+        except (ValueError):
+            print 'That is not a number'
+
+    print 'Thank you'
+
+getSpecialNum()
+
+4. You might need to use such functionality from several places in your program.
+
+5. 
+
+class InputCollector:
+    def getSpecialNum(self):
+        while 1:
+            try:
+                num = float(input('Enter a number > 10: '))
+                if num > 10:
+                    break
+                
+                print 'That is not > 10'
+                    
+            except (ValueError):
+                print 'That is not a number'
+    
+        print 'Thank you'
+
+inputCollector = InputCollector()
+inputCollector.getSpecialNum()
+
+
+6. A geometry manager arranges user interface components.
+
