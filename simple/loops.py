@@ -6,3 +6,6 @@ for num in nums:
     total += num
 
 print('The total is',total)
+
+# You could replace all the above with
+# print(sum(nums))
