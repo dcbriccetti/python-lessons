@@ -7,7 +7,9 @@ advs = ['heartily', 'forcefully', 'gently', 'painfully', 'gleefully', 'derisivel
 verbs = ['ran', 'exploded', 'dropped', 'swam', 'ate', 'jiggled', 'levitated', 'unlocked']
 
 def choose_once(words):
-    return words.pop(randint(0, len(words) - 1))
+    highest_index = len(words) - 1
+    word_index = randint(0, highest_index)
+    return words.pop(word_index)
 
 while len(nouns) and len(adjs) and len(advs) and len(verbs):
     s = 'The %s %s %s %s' % (choose_once(adjs), choose_once(nouns), choose_once(advs), choose_once(verbs))
