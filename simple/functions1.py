@@ -11,5 +11,14 @@ def letter_grade(score):
         grade = 'A'
     return grade
 
+def shorter_letter_grade(score):
+    mins = (90, 80, 70, 60, 0)
+    for index, grade in enumerate('ABCDF'):
+        if score >= mins[index]:
+            return grade
+
 for score in range(55, 101):
-    print(score, letter_grade(score))
+    grade1 = letter_grade(score)
+    grade2 = shorter_letter_grade(score)
+    assert(grade1 == grade2)
+    print(score, grade1)
