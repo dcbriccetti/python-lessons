@@ -2,7 +2,7 @@ from time import sleep
 from random import randint
 
 nouns = ['truck', 'baseball', 'fire', 'bicyclist', 'hard drive', 'printer', 'salesperson', 'baker']
-adjs = ['red', 'bumpy', 'evil', 'happy', 'enthusiastic', 'flummoxed', 'perturbed', 'innoculated']
+adjs = ['red', 'bumpy', 'evil', 'happy', 'enthusiastic', 'flummoxed', 'perturbed', 'inoculated']
 advs = ['heartily', 'forcefully', 'gently', 'painfully', 'gleefully', 'derisively']
 verbs = ['ran', 'exploded', 'dropped', 'swam', 'ate', 'jiggled', 'levitated', 'unlocked']
 
