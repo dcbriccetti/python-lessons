@@ -1,16 +1,16 @@
-from random import random
+from random import randint
 
 # Ask the user how many tosses to make and store the answer in numTosses
 numTosses = int(input('How many tosses? '))
 
-# Loop "numTosses" times
 numHeads = 0
 numTails = 0
+
+# Loop "numTosses" times
 for t in range(numTosses):
-    if random() < .5:
+    if randint(1, 2) == 1:
         numHeads += 1
     else:
         numTails += 1
         
-print('There were ' + str(numHeads) + ' heads and ' + str(numTails) + ' tails')
-
+print('There were %s heads and %s tails' % (numHeads, numTails))
