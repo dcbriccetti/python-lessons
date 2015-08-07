@@ -1,7 +1,7 @@
-import random
+from random import randint
 
 def getThrow(maxValue):
-    return random.randrange(1, maxValue + 1)
+    return randint(1, maxValue)
 
 throws = {}
 diceSides = 6
