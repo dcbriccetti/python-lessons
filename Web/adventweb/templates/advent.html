@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing Adventure Game</title>
+</head>
+<body>
+<h1>Amazing Adventure Game</h1>
+<h2>Current place: {{ place.title }}</h2>
+<div>
+    <img src="static/{{place.title}}.jpg"/>
+</div>
+<p>You can go to:
+<ul>
+  {% for destination in destinations %}
+    <li><a href="{{ destination.path }}">{{ destination.title }}</a></li>
+  {% endfor %}
+  </ul>
+</p>
+</body>
+</html>
