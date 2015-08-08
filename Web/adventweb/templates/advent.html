@@ -20,6 +20,9 @@
     <li><a href="{{ destination.path }}">{{ destination.title }}</a></li>
     {% endfor %}
 </ul>
+{% if place.audio %}
+<audio src="static/{{ place.audio }}" autoplay></audio>
+{% endif %}
 </body>
 
 </html>
