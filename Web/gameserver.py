@@ -1,7 +1,7 @@
 import socket
 
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serverSocket.bind(('', 5000))
+serverSocket.bind(('', 5001))
 serverSocket.listen(1)
 
 while True:
@@ -16,6 +16,11 @@ while True:
         if not line:
             break
         print(clientAddr, line)
+        parts = line.split(' ')
+        if len(parts) >= 3:
+            if parts[0] == 'add':
+                sum = int(parts[1]) + int(parts[2])
+                clientSocket.send(str(sum).encode())
 
     print('Bye bye,', clientAddr)
     clientSocket.close()
