@@ -1,0 +1,3 @@
+Here are some words. Some contain the letter e. And some don't.
+The program will copy only those words that don't contain e to the
+output file.
