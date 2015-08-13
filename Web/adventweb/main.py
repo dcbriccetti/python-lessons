@@ -1,17 +1,22 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, session
 from place import Place
+
+STARTING_PLACE_INDEX = 0
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return redirect(place.path)
+    session['placeIndex'] = STARTING_PLACE_INDEX
+    return redirect(places[STARTING_PLACE_INDEX].path)
 
 @app.route("/<newPath>")
 def show_place(newPath):
-    global place
+    placeIndex = session.get('placeIndex', STARTING_PLACE_INDEX)
+    place = places[placeIndex]
     newDest = places_by_path.get(newPath)
     if newDest in transitions[place]:
         place = newDest
+        session['placeIndex'] = places.index(place)
     return render_template("advent.html", place=place, destinations=transitions[place])
 
 pumpkin = Place('pumpkin', 'Arduino-Powered Pumpkin', audio='135498__compusician__halloween-003-wav-120b.wav')
@@ -28,7 +33,6 @@ transitions = {
     camera : (monster, trail),
     trail  : (camera,),
 }
-place = pumpkin
 
 app.secret_key = 'the dog flies at noon'
 app.run()
