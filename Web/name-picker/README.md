@@ -1,2 +1,2 @@
-# web-adventure
-An adventure game in a web app, written in Python with Flask
+# Name Picker
+A name picker, written in Python with Flask
