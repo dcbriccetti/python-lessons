@@ -1,4 +1,5 @@
-import random, sys
+from random import choice, randint
+from sys import exit
 
 transitions = {
     'airstrip': ('forest',),
@@ -7,7 +8,7 @@ transitions = {
     'meadow': ('cave',),
 }
 places = tuple(transitions.keys())
-place = random.choice(places)
+place = choice(places)
 
 while True:
     print('You are at the', place)
@@ -17,15 +18,15 @@ while True:
     if newDest == 'quit':
         break
     if newDest in destinations:
-        if random.randint(1,10) == 1:
+        if randint(1, 10) == 1:
             print('You were struck by lightning. Game over.')
-            sys.exit()
+            exit()
         place = newDest
         if place == 'meadow':
-            if random.randint(1,2) == 1:
+            if randint(1, 2) == 1:
                 print('You fell in a hole and you are stuck.')
-                sys.exit()
-            if random.randint(1,2) == 1:
+                exit()
+            if randint(1, 2) == 1:
                 print('You discover an amazing treasure!')
     else:
         print("You can't go there.")
