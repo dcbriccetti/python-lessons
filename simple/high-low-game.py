@@ -14,7 +14,7 @@ while guess != number:
 
     if guess > number:
         print('Too high')
-    else:
+    elif guess < number:
         print('Too low')
 
 print('You found the number in', guesses, 'guesses')
