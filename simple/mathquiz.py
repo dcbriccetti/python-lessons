@@ -9,7 +9,7 @@ while True:
     product = m1 * m2
     start_time = time()
     response = input('What is %d * %d ' % (m1, m2))
-    if response == '':
+    if not response.strip():
         break
     answer = int(response)
 
