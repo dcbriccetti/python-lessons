@@ -8,10 +8,13 @@ and if/elif/else.
 from random import randint
 
 choices = ('rock', 'paper', 'scissors')
-beats   = ( 2,      0,       1        )
 formatted_choices = ', '.join(choices)
 
-def _index_of_matching(s):
+def _beaten_by(i):
+    'Return the index of the choice beaten by the choice with index i'
+    return (i + 2) % 3  # Each beats the one to the left of it (wrapping around)
+
+def _index_of_matching_choice(s):
     for index, choice in enumerate(choices):
         if s and choice.startswith(s):
             return index
@@ -21,17 +24,14 @@ while True:
     player_choice_string = input(formatted_choices + '? ').strip().lower()
     if not player_choice_string:
         break
-    player_choice = _index_of_matching(player_choice_string)
+    player_choice = _index_of_matching_choice(player_choice_string)
 
     if player_choice is None:
         print(player_choice_string, 'is not one of', formatted_choices)
     else:
-        player_beats = beats[player_choice]
-        i_beat       = beats[my_choice]
-
-        if player_beats == my_choice:
+        if _beaten_by(player_choice) == my_choice:
             print('You win against my', choices[my_choice])
-        elif i_beat == player_choice:
+        elif _beaten_by(my_choice) == player_choice:
             print('My %s beats your %s.' % (choices[my_choice], choices[player_choice]))
         else:
             print('We both chose', choices[my_choice])
