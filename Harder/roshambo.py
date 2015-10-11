@@ -29,9 +29,9 @@ while True:
     if player_choice is None:
         print(player_choice_string, 'is not one of', formatted_choices)
     else:
-        if _beaten_by(player_choice) == my_choice:
+        if my_choice == _beaten_by(player_choice):
             print('You win against my', choices[my_choice])
-        elif _beaten_by(my_choice) == player_choice:
+        elif player_choice == _beaten_by(my_choice):
             print('My %s beats your %s.' % (choices[my_choice], choices[player_choice]))
         else:
             print('We both chose', choices[my_choice])
