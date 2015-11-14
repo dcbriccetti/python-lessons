@@ -1,10 +1,20 @@
 import time
 from flask import Flask
+from random import choice, randint
 app = Flask(__name__)
+jokes = ('Whoop whoop whoop whoop whoop', 'To get to the other side')
 
 @app.route("/")
 def index():
     return "Here is the top page."
+
+@app.route("/joke")
+def joke():
+    return choice(jokes)
+
+@app.route("/whoop")
+def whoop():
+    return "whoop " * randint(1, 10)
 
 @app.route("/hello")
 def hello():
