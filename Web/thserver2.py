@@ -2,7 +2,7 @@ from random import randint
 from flask import Flask
 app = Flask(__name__)
 
-url_base = "http://192.168.1.152:5000/"
+url_base = "http://192.168.1.7:5000/"
 mlt1 = randint(1, 10)
 mlt2 = randint(1, 10)
 product = mlt1 * mlt2
@@ -41,7 +41,13 @@ def max_puzzle():
 
 
 @app.route("/" + largest)
-def index():
+def words_matching_regex():
+    return '%s where string is the word from this list with three vowels in a row: (kidnapper,bindweed,euonymus,almost,marabou,dismembered,underused,struma,assumptions,tzar,naze,wore,bare,jones,stick,zebrine,laxative,reynard,uninjured,river,manners,faulty,neglect,required,shabby,lobster,dour,fraise,colognes,expressing,eardrop,sneaker,adultery)' % \
+        u("string")
+
+
+@app.route("/euonymus")
+def treasure():
     return "You have reached the treasure!"
 
 
