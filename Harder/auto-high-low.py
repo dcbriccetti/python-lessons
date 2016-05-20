@@ -1,13 +1,15 @@
 from random import randint
 from math import log2, pow
-
+import logging
+logging.basicConfig(format='%(message)s', level=logging.INFO)
+POWERS_OF_TEN_FOR_HIGHEST = range(3, 13, 3)
+NUM_TRIALS = 1000
 
 class AiGuesser:
-    def __init__(self, highest, smart=False, chatty=True):
+    def __init__(self, highest, smart=False):
         self.low = 1
         self.high = self.highest = highest
         self.smart = smart
-        self.chatty = chatty
         self.last_guess = None
 
     def guess(self, too_high):
@@ -18,13 +20,11 @@ class AiGuesser:
         else:
             self.low = self.last_guess + 1
         self.last_guess = self._middle() if self.smart else randint(self.low, self.high)
-        if self.chatty:
-            print('{:,}-{:,}: {:,}'.format(self.low, self.high, self.last_guess))
+        logging.debug('{:,}-{:,}: {:,}'.format(self.low, self.high, self.last_guess))
         return self.last_guess
 
     def win(self, guesses):
-        if self.chatty:
-            print('I got it in {} guesses.'.format(guesses))
+        logging.info('I got it in {} guesses.'.format(guesses))
 
     def _middle(self):
         return self.low + (self.high - self.low) // 2
@@ -33,17 +33,17 @@ class AiGuesser:
 with open('high-low-results.tsv', 'w') as results:
     results.write('Highest\tStrategy\tTrial\tGuesses\n')
 
-    for power in (1, 2, 3, 6, 9, 12):
+    for power in POWERS_OF_TEN_FOR_HIGHEST:
         highest = int(pow(10, power))
-        print('Between 1 and {0:,} (binary logarithm of {0:,} is {1:.2f}).'.format(
+        logging.info('Between 1 and {0:,} (binary logarithm of {0:,} is {1:.2f}).'.format(
             highest, log2(highest)))
 
         for smart in (True, False):
-            print('Smart' if smart else 'Random')
+            logging.info('Smart' if smart else 'Random')
 
-            for trial in range(1, 101):
-                print('Trial', trial)
-                guesser = AiGuesser(highest, smart=smart, chatty=True)
+            for trial in range(1, NUM_TRIALS + 1):
+                logging.info('Trial %d' % trial)
+                guesser = AiGuesser(highest, smart=smart)
                 number = randint(1, highest)
                 guess = guesser.guess(None)
                 guesses = 1
