@@ -1,8 +1,10 @@
-class Game(object):
-    '''The main code for running the game.'''
+class Game:
+    'The main code for running the game. Extend this class for your game. See shipgame.py for an example.'
 
     def __init__(self):
         self.health = 100
+        self.introduction = ''
+        self.location = None
 
     def play(self):
         print(self.introduction)
@@ -26,8 +28,17 @@ class Game(object):
         for (index, transition) in enumerate(transitions):
             print(index + 1, transition.title)
 
-        choice = int(input('Choose one, or 0 to exit: '))
-        if choice == 0:
-            exit(0)
-        else:
+        choice = get_numeric('Choose one, or enter 0 to exit: ')
+        if choice:
             self.location = transitions[choice - 1]
+        else:
+            exit(0)
+
+
+def get_numeric(prompt):
+    while True:
+        response = input(prompt)
+        try:
+            return int(response)
+        except ValueError:
+            print("Please enter a number.")
