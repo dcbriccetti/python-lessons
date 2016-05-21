@@ -1,7 +1,7 @@
 from random import random
 
 
-class Event(object):
+class Event:
     'A game event, including the probability of its happening.'
 
     def __init__(self, probability, message, health_change, max_occurrences=100000):

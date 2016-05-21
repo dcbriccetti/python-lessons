@@ -1,4 +1,4 @@
-class Place(object):
+class Place:
     'A place in the game, with a title, description, and events that can occur there.'
 
     def __init__(self, title, description, events):
