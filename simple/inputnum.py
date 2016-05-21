@@ -6,5 +6,6 @@ def getNumeric(prompt):
         except ValueError:
             print("Please enter a number.")
 
-age = getNumeric('What is your age? ')
-print(age)
+if __name__ == '__main__':
+    age = getNumeric('What is your age? ')
+    print(age)
