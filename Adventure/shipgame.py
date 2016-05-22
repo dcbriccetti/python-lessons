@@ -1,6 +1,8 @@
-from game import Game
-from place import Place
-from event import Event
+from engine.game import Game
+from engine.inventory_item import InventoryItem
+from engine.place import Place
+from engine.event import Event
+from engine.transition import Transition as T
 
 
 class ShipGame(Game):
@@ -15,7 +17,7 @@ class ShipGame(Game):
             ))
 
         ready_room = Place('Ready Room', "You are in the captain's ready room.", (
-            Event(.5, 'The fish in the aquarium turn to watch you', 0, max_occurrences=1)
+            Event(.5, 'The fish in the aquarium turn to watch you', 0, max_occurrences=1),
         ))
 
         lift = Place('Lift', 'You have entered the turbolift.', (
@@ -26,19 +28,28 @@ class ShipGame(Game):
             Event(1, 'Relaxing in the lounge improves your health.', 10),
         ))
 
-        transporter_room = Place('Transporter Room', 'You enter the transporter room.', (
-        ))
+        space_suit = InventoryItem('Spacesuit')
+
+        storage_room = Place('Storage Room', 'You enter the storage room',
+            inventory_items=[space_suit])
+
+        transporter_room = Place('Transporter Room',
+            'The transporter room looks cool with all its blinking lights and sliders.')
 
         planet = Place('Planet', 'You have beamed down to the planet.', (
-            Event(.9, 'The air is too thin to breathe!', -50),
+            Event(.3, 'You found the experience relaxing', +10),
         ))
 
-        bridge          .transitions = (ready_room, lift)
-        ready_room      .transitions = (bridge,)
-        lift            .transitions = (bridge, lounge, transporter_room)
-        lounge          .transitions = (lift,)
-        transporter_room.transitions = (planet, lift)
-        planet          .transitions = (transporter_room,)
+        def mt(places):  # Make Transitions
+            return [T(place) for place in places]
+
+        bridge          .transitions = mt((ready_room, lift))
+        ready_room      .transitions = mt((bridge,))
+        lift            .transitions = mt((bridge, lounge, storage_room, transporter_room))
+        lounge          .transitions = mt((lift,))
+        storage_room    .transitions = mt((lift,))
+        transporter_room.transitions = (T(planet, (space_suit,)), T(lift))
+        planet          .transitions = mt((transporter_room,))
 
         self.location = bridge
 

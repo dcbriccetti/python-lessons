@@ -3,6 +3,7 @@ class Game:
 
     def __init__(self):
         self.health = 100
+        self.inventory = []
         self.introduction = ''
         self.location = None
 
@@ -12,6 +13,11 @@ class Game:
         while True:
             print()
             print(self.location.description)
+            for i in self.location.inventory_items:
+                print('You found: ' + i.name)
+                self.inventory.append(i)
+
+            self.location.inventory_items = ()
 
             for event in self.location.events:
                 self.health += event.process()
@@ -19,18 +25,26 @@ class Game:
                     print("That's it for you!")
                     exit(1)
 
-            print('Health: %d' % self.health)
+            print('Health: %d, Items: %s' % (self.health,
+                ', '.join([i.name for i in self.inventory]) if self.inventory else 'None'))
             self._transition()
 
+    def _have_all(self, must_have):
+        missing = [mh for mh in must_have if mh not in self.inventory]
+        return not missing
+
+    def _available_transitions(self):
+        return [t for t in self.location.transitions if self._have_all(t.must_have)]
+
     def _transition(self):
-        transitions = self.location.transitions
+        transitions = self._available_transitions()
         print('You can go to these places:')
         for (index, transition) in enumerate(transitions):
-            print(index + 1, transition.title)
+            print(index + 1, transition.place.title)
 
         choice = get_numeric('Choose one, or enter 0 to exit: ')
         if choice:
-            self.location = transitions[choice - 1]
+            self.location = transitions[choice - 1].place
         else:
             exit(0)
 
