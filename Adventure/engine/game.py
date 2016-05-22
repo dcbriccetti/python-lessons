@@ -1,3 +1,5 @@
+from random import choice
+
 class Game:
     'The main code for running the game. Extend this class for your game. See shipgame.py for an example.'
 
@@ -22,7 +24,12 @@ class Game:
             for event in self.location.events:
                 self.health += event.process()
                 if self.health <= 0:
-                    print("That's it for you!")
+                    goodbyes = (
+                        "That's it for you!",
+                        'You lose.',
+                        'So long.'
+                    )
+                    print(choice(goodbyes))
                     exit(1)
 
             print('Health: %d, Items: %s' % (self.health,
