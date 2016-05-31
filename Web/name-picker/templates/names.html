@@ -1,8 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Cool Name Picker</h1>
+<div class="well" style="margin-top: 5em">
+    <h1 style="font-size: 10em">{{ name }}</h1>
+</div>
 
-<h2>The chosen name is: {{ name }} </h2>
-
+{% if remaining %}
+<p>Names remaining: {{ remaining }}.</p>
+{% else %}
+<h3>There are no more names</h3>
+<a class="btn btn-lg btn-primary" role="button" href="reset">Reset</a>
+{% endif %}
 {% endblock %}
