@@ -10,9 +10,11 @@ from random import randint
 choices = ('rock', 'paper', 'scissors')
 formatted_choices = ', '.join(choices)
 
+
 def _beaten_by(i):
     'Return the index of the choice beaten by the choice with index i'
     return (i + 2) % 3  # Each beats the one to the left of it (wrapping around)
+
 
 def _index_of_matching_choice(s):
     for index, choice in enumerate(choices):
