@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript">
+    function initMap() {
+        new google.maps.Map(document.getElementById('map'), {
+            center: {lat: {{lat}}, lng: {{lng}}},
+            zoom: 15
+          });
+    }
+    </script>
+</head>
+<body onload="initMap()">
+<div id="map" style="width:100%; height:500px;"></div>
+</body>
+</html>
