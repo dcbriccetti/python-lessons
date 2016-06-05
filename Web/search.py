@@ -1,7 +1,5 @@
 import requests
 
-search_arg = 'TCP/IP'
-resp = requests.get('https://api.duckduckgo.com/?q=%s&format=json&pretty=1' % search_arg)
-status = resp.status_code
-json = resp.json()
-print(json['Abstract'])
+search_arg = 'Guido von Rossum'
+response = requests.get('https://api.duckduckgo.com/?q=%s&format=json&pretty=1' % search_arg).json()
+print('From {}: {}'.format(response['AbstractSource'], response['Abstract']))
