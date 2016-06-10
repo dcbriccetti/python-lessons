@@ -4,16 +4,16 @@ def showPlace():
     if objects:
         print('These objects are here:')
         for object in objects:
-            print(("\t", object))
+            print("\t", object)
     print('From here you can go to: ')
     for otherPlace in place[1]:
-        print(("\t", otherPlace))
+        print("\t", otherPlace)
 
 def showItems():
     if collectedItems:
         print('You have collected these items:')
         for item in collectedItems:
-            print(("\t", item))
+            print("\t", item)
 
 places = {}
 collectedItems = []
@@ -43,20 +43,19 @@ place = places["forest"]
 while place:
     showPlace()
     showItems()
-    cmdLine = eval(input('--> '))
+    cmdLine = input('--> ')
     cmdWords = cmdLine.split(' ')
     cmd = cmdWords[0]
-    cmdArgs = cmdWords[1]
     availPlaces = place[1]
     availItems = place[2]
 
     if cmd == 'go':
-        newPlace = cmdArgs
+        newPlace = cmdWords[1]
         if newPlace in availPlaces:
             place = places[newPlace]
         else:
             print('You can\'t go there.')
     elif cmd == 'get':
-        requestedItem = cmdArgs
-        if requestedItem in availItems and not (cmdArgs in collectedItems):
+        requestedItem = cmdWords[1]
+        if requestedItem in availItems and not (cmdWords[1] in collectedItems):
             collectedItems.append(requestedItem)
