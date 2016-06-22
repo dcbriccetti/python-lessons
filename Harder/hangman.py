@@ -43,7 +43,7 @@ while num_guesses < MAX_GUESSES:
         print('Wrong:', ' '.join(sorted(list(wrong))))
 
     guess = input('Guess? ')
-    num_guesses -= 1
+    num_guesses += 1
 
     if guess == word:
         print('Right!')
