@@ -3,7 +3,7 @@ from random import randint, choice
 from flask import Flask, abort
 app = Flask(__name__)
 
-URL_BASE = "http://localhost:5000/"
+URL_BASE = "http://192.168.1.7:5000/"
 
 
 def path_gen():
@@ -27,7 +27,7 @@ def u(p): return URL_BASE + p
 
 @app.route("/")
 def start():
-    return "%s where <number> = %s × %s" % (u("<number>"), u('multiplier'), u('multiplicand'))
+    return "%s where number = %s × %s" % (u("number"), u('multiplier'), u('multiplicand'))
 
 
 @app.route('/multiplier')
@@ -42,7 +42,7 @@ def m2():
 
 @app.route("/" + max_puzzle_path)
 def max_puzzle():
-    return "%s where <number> is the largest of (%s)" % (u('<number>'), ', '.join(max_of_str))
+    return "%s where number is the largest of (%s)" % (u('number'), ', '.join(max_of_str))
 
 
 @app.route("/<int:product_guess>")
@@ -62,4 +62,4 @@ def treasure():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='192.168.1.7', debug=True)

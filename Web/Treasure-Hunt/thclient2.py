@@ -2,7 +2,7 @@ import requests
 import re
 
 treasure_found = False
-url_base = 'http://localhost:5000/'
+url_base = 'http://192.168.1.7:5000/'
 clue_loc = url_base
 
 
@@ -37,7 +37,7 @@ while not treasure_found:
     if text == 'You have reached the treasure!':
         treasure_found = True
     else:
-        if 'where <number> is the largest' in text:
+        if 'where number is the largest' in text:
             clue_loc = solve_largest_puzzle(text)
         elif '×' in text:
             clue_loc = solve_multiply_puzzle()
