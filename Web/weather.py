@@ -8,4 +8,5 @@ def temp_at_location(location):
     json = requests.get(url).json()
     return json['main']['temp']
 
-print('%.1f' % temp_at_location('94549,US'))
+if __name__ == '__main__':
+    print('%.1f' % temp_at_location('94549,US'))
