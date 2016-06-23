@@ -1,20 +1,23 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 app = Flask(__name__)
 
-school_codes = {
-    'hv': 'Happy Valley',
-    'stanley': 'Stanley'
+schools = {
+    'hv':       ('Happy Valley',    37.905,     -122.1445),
+    'stanley':  ('Stanley',         37.8862125, -122.1148579)
 }
+
 
 @app.route("/")
 def index():
     return "Try /stanley or /hv"
 
-@app.route("/<school_code>")
-def school(school_code):
-    if school_code == 'stanley':
-        return render_template('map.html', lat=37.8862125, lng=-122.1148579, school=school_codes[school_code])
-    elif school_code == 'hv':
-        return render_template('map.html', lat=37.905, lng=-122.1445, school=school_codes[school_code])
 
-app.run(host='0.0.0.0', debug=True)
+@app.route("/<school_code>")
+def show_school(school_code):
+    school = schools.get(school_code)
+    if school:
+        return render_template('map.html', lat=school[1], lng=school[2], school=school[0])
+    else:
+        abort(404)
+
+app.run(host='0.0.0.0', port=8001, debug=True)
