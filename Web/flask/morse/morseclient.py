@@ -8,12 +8,17 @@ SPACE_DELAY_MS = INTER_LETTER_DELAY_MS * 3
 
 
 def run_with_message(message):
-    def request_secret():
-        resp = requests.get(URL_BASE + '/secret')
-        print(resp.text)
-
+    request_secret()
+    send_unlock_request(message)
     request_secret()
 
+
+def request_secret():
+    resp = requests.get(URL_BASE + '/secret')
+    print(resp.text)
+
+
+def send_unlock_request(message):
     for letter in message:
         if letter == ' ':
             sleep(SPACE_DELAY_MS)
@@ -24,8 +29,6 @@ def run_with_message(message):
                     print(resp.text)
             sleep(INTER_LETTER_DELAY_MS)
 
-    request_secret()
-
-for message in ('wrong', 'open sesame'):
-    run_with_message(message)
-    sleep(3)
+run_with_message('wrong')
+sleep(2)
+run_with_message('open sesame')
