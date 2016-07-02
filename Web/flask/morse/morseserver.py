@@ -38,14 +38,14 @@ def code(code):
             state.elements_matched = 0  # Reset so they can run again
             state.locked = False
             log.info(addr + ' unlocked')
-            return 'Unlocked!', 200, PLAIN_HEADER
+            return 'Unlocked!\n', 200, PLAIN_HEADER
         else:
             log.debug('%s elements matched: %d', addr, state.elements_matched)
-            return "Keep going.", 200, PLAIN_HEADER
+            return "Keep going.\n", 200, PLAIN_HEADER
     else:
         state.locked = True
         state.elements_matched = 0
-        return 'Wrong. Start again.', 400, PLAIN_HEADER
+        return 'Wrong. Start again.\n', 400, PLAIN_HEADER
 
 
 @app.route('/secret')
@@ -54,7 +54,7 @@ def secret():
     if state and not state.locked:
         return 'The secret is 42\n'
 
-    return 'Give us the passphase via Morse Code first.', 403, PLAIN_HEADER
+    return 'Give us the passphase via Morse Code first.\n', 403, PLAIN_HEADER
 
 
 app.run(host='localhost', debug=True, threaded=True)
