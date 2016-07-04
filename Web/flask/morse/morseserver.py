@@ -57,8 +57,8 @@ def secret():
     if state and state.unlocked_at and state.unlocked_at > time() - STAY_UNLOCKED_SECS:
         return 'The secret is 42'
 
-    return ('Give the passphase via Morse Code, then request the secret within %d seconds.' %
-           STAY_UNLOCKED_SECS, 403, PLAIN_HEADER)
+    return ('Give the password via Morse Code, then request the secret within %d seconds.' %
+            STAY_UNLOCKED_SECS, 403, PLAIN_HEADER)
 
 
 app.run(host='localhost', debug=True, threaded=True)
