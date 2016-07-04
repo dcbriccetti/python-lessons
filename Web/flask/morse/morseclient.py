@@ -1,34 +1,25 @@
 import requests
 from time import sleep
-from codes import morse_code_strings
+from codes import PASSWORD, morse_codes, words_by_symbol
 
 URL_BASE = 'http://localhost:5000'
 INTER_LETTER_DELAY = 0.2
-SPACE_DELAY = INTER_LETTER_DELAY * 3
-
-
-def run_with_message(message):
-    request_secret()
-    send_unlock_request(message)
-    request_secret()
 
 
 def request_secret():
-    resp = requests.get(URL_BASE + '/secret')
-    print(resp.text)
+    response = requests.get(URL_BASE + '/secret')
+    print(response.text)
 
 
 def send_unlock_request(message):
     for letter in message:
-        if letter == ' ':
-            sleep(SPACE_DELAY)
-        else:
-            symbols_for_letter = morse_code_strings[letter]
-            for symbol in symbols_for_letter:
-                resp = requests.get(URL_BASE + '/code/' + symbol)
-                print(resp.text)
-            sleep(INTER_LETTER_DELAY)
+        symbols_for_letter = morse_codes[letter]
+        for symbol in symbols_for_letter:
+            response = requests.get(URL_BASE + '/code/' + words_by_symbol[symbol])
+            print(response.text)
+        sleep(INTER_LETTER_DELAY)
 
-run_with_message('wrong')
-sleep(2)
-run_with_message('open sesame')
+
+request_secret()
+send_unlock_request(PASSWORD)
+request_secret()

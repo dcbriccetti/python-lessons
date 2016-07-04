@@ -1,4 +1,6 @@
-morse_code_strings = {
+PASSWORD = 'abracadabra'
+
+morse_codes = {
   '0': '-----',
   '1': '.----',
   '2': '..---',
@@ -45,3 +47,11 @@ morse_code_strings = {
   '(': '-.--.',
   ')': '-.--.-'
 }
+
+symbols_and_words = (
+    ('-', 'dash'),
+    ('.', 'dot')
+)
+
+words_by_symbol = {symbol: word for symbol, word in symbols_and_words}
+symbols_by_word = {word: symbol for symbol, word in symbols_and_words}
