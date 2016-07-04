@@ -23,10 +23,10 @@ def send_unlock_request(message):
         if letter == ' ':
             sleep(SPACE_DELAY)
         else:
-            for symbols in morse_code_strings[letter]:
-                for symbol in symbols:
-                    resp = requests.get(URL_BASE + '/code/' + symbol)
-                    print(resp.text)
+            symbols_for_letter = morse_code_strings[letter]
+            for symbol in symbols_for_letter:
+                resp = requests.get(URL_BASE + '/code/' + symbol)
+                print(resp.text)
             sleep(INTER_LETTER_DELAY)
 
 run_with_message('wrong')
