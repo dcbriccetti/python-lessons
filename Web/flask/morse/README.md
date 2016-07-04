@@ -1,5 +1,14 @@
 # Morse Code Secret Server
 
+This project provides Python client and server programs for “unlocking” a server 
+via Morse Code and then requesting a secret. It uses the Flask framework 
+and the requests library.
+
+## YouTube Video: Demo and Code Walkthrough
+
+[This video](https://www.youtube.com/watch?v=MJ2AF7hZUQE&list=PL7DF0D1EA1E0010FC)
+demonstrates the programs and walks through the code.
+
 ## The Server
 
 For each IP address connecting to it, the server keeps track of a client’s 
