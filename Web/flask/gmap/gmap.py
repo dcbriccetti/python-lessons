@@ -15,8 +15,9 @@ class School:
         self.lng  = lng
 
 schools = (
-    School('hv',      'Happy Valley Elementary', 37.905, -122.1445),
-    School('stanley', 'Stanley Middle',          37.886, -122.1149)
+    School('hv',      'Happy Valley Elementary',   37.9045286, -122.1445772),
+    School('stanley', 'Stanley Middle',            37.8884474, -122.1155922),
+    School('wci',     'Walnut Creek Intermediate', 37.9093673, -122.0580063)
 )
 schools_by_key = {school.key: school for school in schools}
 
