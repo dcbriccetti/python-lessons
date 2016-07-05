@@ -1,3 +1,8 @@
+'''
+A Web application that shows Google Maps around schools, using
+the Flask framework, and the Google Maps API.
+'''
+
 from flask import Flask, render_template, abort
 app = Flask(__name__)
 
@@ -29,4 +34,4 @@ def show_school(school_code):
     else:
         abort(404)
 
-app.run(host='0.0.0.0', port=8001, debug=True)
+app.run(debug=True)
