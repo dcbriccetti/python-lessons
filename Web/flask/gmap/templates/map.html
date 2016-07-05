@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Local Schools</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
     function initMap() {
         new google.maps.Map(document.getElementById('map'), {
-            center: {lat: {{lat}}, lng: {{lng}}},
+            center: {lat: {{school.lat}}, lng: {{school.lng}}},
             zoom: 15
           });
     }
     </script>
 </head>
 <body onload="initMap()">
-<h1>{{school}} School</h1>
-<div id="map" style="width:100%; height:500px;"></div>
+<div class="container">
+    <h1>{{school.name}} School</h1>
+    <div id="map" style="width:100%; height:500px;"></div>
+</div>
 </body>
 </html>
