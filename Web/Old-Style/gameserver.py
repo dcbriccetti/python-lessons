@@ -20,7 +20,7 @@ while True:
         if len(parts) >= 3:
             if parts[0] == 'add':
                 sum = int(parts[1]) + int(parts[2])
-                clientSocket.send(str(sum).encode())
+                clientSocket.send(('%d\n' % sum).encode())
 
     print('Bye bye,', clientAddr)
     clientSocket.close()
