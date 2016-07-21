@@ -5,7 +5,8 @@ log = logging.getLogger('permute')
 
 
 def chars_range(start, end):
-    return [chr(a) for a in range(ord(start), ord(end) + 1)]
+    "Make a string with all characters in the range, e.g., ('a', 'z')"
+    return ''.join([chr(a) for a in range(ord(start), ord(end) + 1)])
 
 
 class Permuter:

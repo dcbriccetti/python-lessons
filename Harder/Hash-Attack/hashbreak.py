@@ -9,7 +9,7 @@ plaintext = 'zoom'
 hashed_secret = hash_with_md5(plaintext)
 
 MAX_STRING_LENGTH = len(plaintext)
-CHARS = ''.join(chars_range('a', 'z') + list(' .'))
+CHARS = chars_range('a', 'z') + ' .'
 print(CHARS)
 
 permuter = Permuter(CHARS, MAX_STRING_LENGTH)
