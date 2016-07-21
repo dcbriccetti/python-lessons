@@ -15,7 +15,7 @@ class Permuter:
         self.generated = 0
 
     def next(self, starting_sequence=''):
-        log.debug('perm_gen(%s)' % starting_sequence)
+        log.debug('next(%s)' % starting_sequence)
         for char in self.chars:
             result = starting_sequence + char
             self._count()
