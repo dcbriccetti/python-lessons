@@ -1,8 +1,8 @@
 from flask import Flask, render_template, redirect
 from random import randint
 
-HOW_MANY_OF_EACH_NAME = 2
-all_names = ('Jim', 'Sue', 'Steve') * HOW_MANY_OF_EACH_NAME
+HOW_MANY_OF_EACH_NAME = 3
+all_names = ('John Mary Sue'.split(' ')) * HOW_MANY_OF_EACH_NAME
 remaining_names = list(all_names)
 
 app = Flask(__name__)
@@ -23,4 +23,4 @@ def reset():
     remaining_names = list(all_names)
     return redirect("/")
 
-app.run(debug=True)
+app.run(debug=True, port=8181)
