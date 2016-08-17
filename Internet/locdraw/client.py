@@ -12,7 +12,7 @@ def rc():
 
 try:
     for n in range(100):
-        socket.send(('Dave\t%i\t%i' % (rc(), rc())).encode())
+        socket.send(('Dave\t%i\t%i\tblue' % (rc(), rc())).encode())
         sleep(2)
 except KeyboardInterrupt:
     pass

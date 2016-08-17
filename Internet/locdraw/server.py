@@ -8,15 +8,14 @@ serverSocket = None
 move_event = Event()
 
 class Move:
-    def __init__(self, name, x, y):
-        self.name = name
-        self.x = x
-        self.y = y
+    def __init__(self, parts):
+        self.name = parts[0]
+        self.x = int(parts[1])
+        self.y = int(parts[2])
+        self.color = parts[3]
 
 move_cmd = None
-turtles = {
-    'all': Turtle()
-}  # Client name -> turtle
+turtles = {}  # Client name -> turtle
 
 def handle_client(client_socket, address):
     global move_cmd
@@ -25,8 +24,8 @@ def handle_client(client_socket, address):
     while True:
         line = client_socket.recv(1024).decode()
         parts = line.split('\t')
-        if len(parts) == 3:
-            move_cmd = Move(parts[0], int(parts[1]), int(parts[2]))
+        if len(parts) == 4:
+            move_cmd = Move(parts)
             move_event.set()
             print(address, line)
             client_socket.send('Thanks for that\n'.encode())
@@ -53,7 +52,10 @@ try:
     while True:
         move_event.wait()
         move_event.clear()
-        turtles['all'].goto(move_cmd.x, move_cmd.y)
+        client_turtle = turtles.get(move_cmd.name, Turtle())
+        turtles[move_cmd.name] = client_turtle
+        client_turtle.pencolor(move_cmd.color)
+        client_turtle.goto(move_cmd.x, move_cmd.y)
 except KeyboardInterrupt:
     print('Stopping server')
     serverSocket.close()
