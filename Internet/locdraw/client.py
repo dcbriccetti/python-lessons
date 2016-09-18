@@ -1,11 +1,12 @@
 from threading import Thread, current_thread, local
-from random import randint, random, choice
+from random import randint, random
 from time import sleep
 from socket import socket, AF_INET, SOCK_STREAM
 from port import PORT
 
 
 def rc():
+    'Return random numbers for coordinates'
     return randint(-300, 300)
 
 
