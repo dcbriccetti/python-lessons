@@ -23,10 +23,8 @@ def use_the_main_thread():
 
 
 def use_multiple_threads():
-    threads = []
-    for n in range(NUM_COUNTERS):
-        thread = Thread(target=count_and_sleep)
-        threads.append(thread)
+    threads = [Thread(target=count_and_sleep) for n in range(NUM_COUNTERS)]
+    for thread in threads:
         thread.start()
     for thread in threads:
         thread.join()
