@@ -50,7 +50,7 @@ turtle_shapes = ('arrow', 'circle', 'square', 'triangle', 'classic', 'turtle')
 def add_turtle(name):
     t = Turtle()
     t.speed('fast')
-    t.penup()
+    #t.penup()
     t.shape(turtle_shapes[len(turtles) % len(turtle_shapes)])
     turtles[name] = t
     t.setheading(90)  # Point up
@@ -62,8 +62,9 @@ try:
     for n in range(100000):
         cmd = cmd_queue.get()
         client_turtle = turtles.get(cmd.name) or add_turtle(cmd.name)
-        if n % 10 == 0:
-            turtle.clear()  # Todo clear the screen here–not working
+        if n % 50 == 0:  # Clear all turtles periodically
+            for turtle in turtles.values():
+                turtle.clear()
         client_turtle.pencolor(cmd.color)
         client_turtle.goto(cmd.x, cmd.y)
 except KeyboardInterrupt:
