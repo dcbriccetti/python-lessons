@@ -7,8 +7,11 @@ with open('common-words.txt') as file:
 
 while True:
     sentence = input('-> ')
-    words = sentence.split(' ')
-    for word in words:
-        print(word if word.lower() in common_words else '*' * len(word), end=' ')
+    if sentence:
+        words = sentence.split(' ')
+        for word in words:
+            print(word if word.lower() in common_words else '*' * len(word), end=' ')
 
-    print()
+        print()
+    else:
+        break
