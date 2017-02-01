@@ -4,7 +4,7 @@ Welcome to the high-low guessing game.
 I am thinking of an integer between 1 and 100.
 ''')
 
-guess = 0
+guess = None
 guesses = 0
 number = randint(1, 100)
 
