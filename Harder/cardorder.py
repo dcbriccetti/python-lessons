@@ -1,43 +1,39 @@
-# A brute-force solution to the problem posed in
-# http://marilynburnsmathblog.com/wordpress/when-should-and-shouldnt-we-give-answers/
+'''
+A brute-force solution to the problem posed in
+http://marilynburnsmathblog.com/wordpress/when-should-and-shouldnt-we-give-answers/
+
+Earlier versions (see history in Github) better match the YouTube video.
+'''
 
 from time import time
-from sys import exit
 
-deck_ops = 0
-decks = 0
+decks_tried = 0
 
 
 def correct_order(read_only_deck):
-    global deck_ops, decks
+    'Determine whether the cards in the deck are in the correct order'
+    global decks_tried
+    decks_tried += 1
     deck = list(read_only_deck)
-    decks += 1
 
     for expected in range(1, 11):
-        deck_ops += 1
-
         if deck.pop(0) != expected:
             return False
 
-        if deck:
+        if len(deck) > 1:
             deck.append(deck.pop(0))
-            deck_ops += 2
 
     return True
 
 
+def permutations():
+    'Return a generator of deck tuples'
+    r = range(2, 11)
+    return ((1, c2, 2, c4, 3, c6, 4, c8, 5, c10)
+            for c2 in r for c4 in r for c6 in r for c8 in r for c10 in r)
+
+
 start = time()
-r = range(2, 11)
-
-(c1, c3, c5, c7, c9) = range(1, 6)
-
-for c2 in r:
-    for c4 in r:
-        for c6 in r:
-            for c8 in r:
-                for c10 in r:
-                    deck = (c1, c2, c3, c4, c5, c6, c7, c8, c9, c10)
-                    if correct_order(deck):
-                        print('Deck {} found in {:.3f} seconds. {:,} decks tried. {:,} list operations performed.'.format(
-                              deck, time() - start, decks, deck_ops))
-                        exit()
+correct_deck = next(filter(correct_order, permutations()))
+assert correct_deck == (1, 6, 2, 10, 3, 7, 4, 9, 5, 8)
+print('Deck {} found in {:.3f} seconds. {:,} decks tried.'.format(correct_deck, time() - start, decks_tried))
