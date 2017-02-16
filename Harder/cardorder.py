@@ -15,10 +15,9 @@ def correct_order(read_only_deck):
     expected = 1
 
     while deck:
-        c = deck.pop(0)
         deck_ops += 1
 
-        if c != expected:
+        if deck.pop(0) != expected:
             return False
 
         if not deck:
