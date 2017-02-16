@@ -12,20 +12,18 @@ def correct_order(read_only_deck):
     global deck_ops, decks
     deck = list(read_only_deck)
     decks += 1
-    expected = 1
 
-    while deck:
+    for expected in range(1, 11):
         deck_ops += 1
 
         if deck.pop(0) != expected:
             return False
 
-        if not deck:
-            return True
+        if deck:
+            deck.append(deck.pop(0))
+            deck_ops += 2
 
-        deck.append(deck.pop(0))
-        deck_ops += 2
-        expected += 1
+    return True
 
 
 start = time()
