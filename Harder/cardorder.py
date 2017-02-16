@@ -13,14 +13,15 @@ def correct_order(read_only_deck):
     deck = list(read_only_deck)
     decks += 1
     expected = 1
-    while len(deck):
+
+    while deck:
         c = deck.pop(0)
         deck_ops += 1
 
         if c != expected:
             return False
 
-        if len(deck) == 0:
+        if not deck:
             return True
 
         deck.append(deck.pop(0))
@@ -31,15 +32,12 @@ def correct_order(read_only_deck):
 start = time()
 r = range(2, 11)
 
-c1 = 1
+(c1, c3, c5, c7, c9) = range(1, 6)
+
 for c2 in r:
-    c3 = 2
     for c4 in r:
-        c5 = 3
         for c6 in r:
-            c7 = 4
             for c8 in r:
-                c9 = 5
                 for c10 in r:
                     deck = (c1, c2, c3, c4, c5, c6, c7, c8, c9, c10)
                     if correct_order(deck):
