@@ -13,7 +13,7 @@ def correct_order(read_only_deck):
     deck = list(read_only_deck)
     decks += 1
     expected = 1
-    while len(deck) > 0:
+    while len(deck):
         c = deck.pop(0)
         deck_ops += 1
 
