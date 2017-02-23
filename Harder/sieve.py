@@ -1,11 +1,8 @@
 import math
 from time import time
 start_time = time()
-HIGHEST = 1000
-sieve = []
-
-for n in range(0, HIGHEST + 1):
-    sieve.append(True)
+HIGHEST = 100
+sieve = [True] * (HIGHEST + 1)
 
 for prime in range(2, int(math.sqrt(HIGHEST + 1))):
     for n in range(prime * 2, HIGHEST + 1, prime):
