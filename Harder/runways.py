@@ -7,10 +7,10 @@ import csv
 class Runway:
     def __init__(self, airport_id, runway_name):
         self.airport_id = airport_id
-        self.runway = runway_name
+        self.runway_name = runway_name
 
     def __str__(self):
-        return self.airport_id + ' ' + runway_name
+        return self.airport_id + ' ' + self.runway_name
 
 airports_by_id = {}
 
