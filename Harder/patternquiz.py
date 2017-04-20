@@ -33,4 +33,4 @@ while True:
     if leg_heading == actual_leg_heading:
         print('Right! Perhaps you will land successfully.')
     else:
-        print('Your error may lead to catastrophe. The correct answer is %d' % actual_leg_heading)
+        print('Your error may lead to catastrophe. The correct answer is %d.' % actual_leg_heading)
