@@ -1,8 +1,8 @@
 from flask import Flask, render_template, redirect
 from random import randint
 
-HOW_MANY_OF_EACH_NAME = 3
-all_names = ('John Mary Sue'.split(' ')) * HOW_MANY_OF_EACH_NAME
+HOW_MANY_OF_EACH_NAME = 4
+all_names = ('Graham Meera Rohan Alex'.split(' ')) * HOW_MANY_OF_EACH_NAME
 remaining_names = list(all_names)
 
 app = Flask(__name__)

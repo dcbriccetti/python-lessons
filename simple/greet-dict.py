@@ -4,6 +4,10 @@ messages = {
     'betty': "Where's that five dollars you owe me?",
 }
 
+names = list(messages.keys())
+names.sort()
+print(', '.join(names))
+
 name = input('What is your name? ')
 nameLower = name.lower()
 

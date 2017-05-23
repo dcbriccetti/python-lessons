@@ -15,7 +15,7 @@ class Runway:
 airports_by_id = {}
 
 # Data come from from http://ourairports.com/data/
-with open("airports.csv") as file:
+with open("/Users/daveb/Documents/Flying/data/airports.csv") as file:
     reader = csv.reader(file)
     for line in reader:
         airport_id = line[1]
@@ -24,7 +24,7 @@ with open("airports.csv") as file:
 
 runways = []
 
-with open("runways.csv") as file:
+with open("/Users/daveb/Documents/Flying/data/runways.csv") as file:
     reader = csv.reader(file)
     for line in reader:
         airport_id = line[2]

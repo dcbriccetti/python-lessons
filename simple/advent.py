@@ -15,7 +15,8 @@ while alive:
     destinations = transitions[place]
     print('From here you can go to', ', '.join(destinations))
     new_place = input('Where would you like to go? ')
-    if new_place == 'quit':
+    if not new_place:
+        print('You have left the game')
         break
     else:
         if new_place in destinations:
