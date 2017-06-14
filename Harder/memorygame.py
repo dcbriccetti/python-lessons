@@ -24,7 +24,6 @@ while True:
 
     number_in_both_sequences = choice(first_sequence)
 
-    # Make up seq_length - 1 numbers that aren’t in first_sequence
     second_sequence = set()
     second_sequence.add(number_in_both_sequences)
     while len(second_sequence) < seq_length:
