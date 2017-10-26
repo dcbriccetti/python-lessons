@@ -1,7 +1,5 @@
-num_to_make = 10
+current, next = 0, 1
 
-num1, num2 = 0, 1
-
-for n in range(num_to_make):
-    print(num1)
-    num1, num2 = num2, num1 + num2
+for n in range(10):
+    print(current)
+    current, next = next, current + next
