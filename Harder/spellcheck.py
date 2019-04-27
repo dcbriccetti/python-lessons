@@ -1,8 +1,5 @@
-words = set()
-
 with open('words.txt') as file:
-    for line in file:
-        words.add(line.strip())
+    words = {line.strip() for line in file}
 
 sentence = input('Enter a sentence and I will spell check every word => ')
 
