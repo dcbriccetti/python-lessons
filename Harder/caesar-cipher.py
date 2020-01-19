@@ -2,23 +2,19 @@ simple_plaintext = 'The eagle flies at dawn.'
 all_ascii_chars: str = ''.join((chr(n) for n in range(256)))
 
 
-def shifted_by(ch, shift_by):
+def _shift_character(ch, shift_by) -> str:
     return chr((ord(ch) + shift_by) % 256)
 
 
-def encrypt(plaintext) -> str:
-    return ''.join((shifted_by(ch, 1) for ch in plaintext))
-
-
-def decrypt(cyphertext) -> str:
-    return ''.join((shifted_by(ch, -1) for ch in cyphertext))
+def shift(plaintext, num_positions: int) -> str:
+    return ''.join((_shift_character(ch, num_positions) for ch in plaintext))
 
 
 if __name__ == '__main__':
     # Test with a simple message, and with a string made of all 8-bit ASCII characters
     for plaintext in (simple_plaintext, all_ascii_chars):
-        cyphertext: str = encrypt(plaintext)
+        cyphertext: str = shift(plaintext, 1)
         print(cyphertext)
-        decoded: str = decrypt(cyphertext)
+        decoded: str = shift(cyphertext, -1)
         print(decoded)
         assert plaintext == decoded
