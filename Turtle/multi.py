@@ -1,10 +1,10 @@
-import turtle
+from turtle import speed, Turtle
 from random import randint
-turtle.speed('fast')
+speed('fast')
 
-turtles = [turtle.Turtle() for n in range(5)]
+turtles = [Turtle() for n in range(5)]
 
 for n in range(10):
-    for turtle in turtles:
-        turtle.forward(randint(50, 100))
-        turtle.right(randint(85, 95))
+    for t in turtles:
+        t.forward(randint(50, 100))
+        t.right(randint(85, 95))
