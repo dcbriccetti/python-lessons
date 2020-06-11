@@ -49,17 +49,21 @@ class Game:
         for (index, transition) in enumerate(transitions):
             print(index + 1, transition.place.title)
 
-        choice = get_numeric('Choose one, or enter 0 to exit: ')
+        choice = get_numeric('Choose one, or enter 0 to exit: ', len(transitions))
         if choice:
             self.location = transitions[choice - 1].place
         else:
             exit(0)
 
 
-def get_numeric(prompt):
+def get_numeric(prompt, highest):
     while True:
         response = input(prompt)
         try:
-            return int(response)
+            int_response = int(response)
+            if int_response > highest or int_response < 0:
+                print(f'Please enter a number between 0 and {highest}')
+            else:
+                return int_response
         except ValueError:
             print("Please enter a number.")
