@@ -9,4 +9,4 @@ for t in range(100):
     else:
         numTails += 1
         
-print('There were %s heads and %s tails' % (numHeads, numTails))
+print(f'There were {numHeads} heads and {numTails} tails')
