@@ -1,5 +1,5 @@
-current, next = 0, 1
+num, next_num = 0, 1
 
 for n in range(10):
-    print(current)
-    current, next = next, current + next
+    print(num)
+    num, next_num = next_num, num + next_num
