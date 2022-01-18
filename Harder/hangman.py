@@ -1,10 +1,6 @@
 import turtle as t
+from random import choice
 
-word = 'television'
-correct = set()
-wrong = set()
-MAX_GUESSES = 7
-num_guesses = 0
 
 def draw_background():
     t.setup(300, 500)
@@ -28,10 +24,16 @@ def draw_body():
     t.pd()
     t.fd(100)
 
-def draw_left_arm():
-    pass
+def draw_unfinished():
+    pass  # Not yet implemented
 
-draw_functions = (draw_head, draw_body, draw_left_arm)
+word = choice('television absolute aircraft budget champion complex fiction introduce'.split())
+correct: set[str] = set()
+wrong: set[str] = set()
+MAX_GUESSES = 7
+num_guesses = 0
+
+draw_functions = [draw_head, draw_body] + [draw_unfinished] * (7 - 2)
 
 draw_background()
 
