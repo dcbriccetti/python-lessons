@@ -1,39 +1,42 @@
 '''
 Rock, paper scissors game.
 
-Illustrates use of tuples, join, strip, lower, enumerate, randint, custom functions, while, break,
-and if/elif/else.
+Illustrates use of Enum, tuples, join, strip, lower, enumerate, randint,
+custom functions, while, break, and if/elif/else.
 '''
 
-from random import randint
+from random import choice
+from enum import Enum
 
-choices = ('rock', 'paper', 'scissors')
-formatted_choices = ', '.join(choices)
+class Item(Enum):
+    ROCK = 0
+    PAPER = 1
+    SCISSORS = 2
 
+    def __str__(self) -> str:
+        return self.name.lower()
 
-def _beaten_by(i):
-    'Return the index of the choice beaten by the choice with index i'
-    return (i + 2) % 3  # Each beats the one to the left of it (wrapping around)
+    def beats(self, item) -> bool:
+        'Return the item this item beats'
+        # Each beats the item that precedes it (wrapping around)
+        beats_value: int = (self.value - 1) % 3
+        return item == Item(beats_value)
 
-
-def _index_of_matching_choice(s):
-    for index, choice in enumerate(choices):
-        if s and choice.startswith(s):
-            return index
+item_names = [item.name for item in Item]
+formatted_items = ', '.join(name.lower() for name in item_names)
 
 while True:
-    my_choice = randint(0, 2)
-    player_choice_string = input(formatted_choices + '? ').strip().lower()
-    if not player_choice_string:
+    my_item = choice(list(Item))
+    player_item_string = input(formatted_items + '? ').strip()
+    if not player_item_string:
         break
-    player_choice = _index_of_matching_choice(player_choice_string)
-
-    if player_choice is None:
-        print(player_choice_string, 'is not one of', formatted_choices)
+    if player_item_string.upper() not in item_names:
+        print(player_item_string, 'is not one of', formatted_items)
     else:
-        if my_choice == _beaten_by(player_choice):
-            print('You win against my', choices[my_choice])
-        elif player_choice == _beaten_by(my_choice):
-            print('My %s beats your %s.' % (choices[my_choice], choices[player_choice]))
+        player_item = Item[player_item_string.upper()]
+        if player_item.beats(my_item):
+            print('You win against my', my_item)
+        elif my_item.beats(player_item):
+            print(f'My {my_item} beats your {player_item}.')
         else:
-            print('We both chose', choices[my_choice])
+            print('We both chose', my_item)
