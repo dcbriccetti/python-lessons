@@ -17,7 +17,7 @@ class Item(Enum):
         return self.name.lower()
 
     def beats(self, item) -> bool:
-        'Return the item this item beats'
+        'Return whether this item beats the given item'
         # Each beats the item that precedes it (wrapping around)
         beats_value: int = (self.value - 1) % 3
         return item == Item(beats_value)
