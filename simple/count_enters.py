@@ -1,6 +1,6 @@
 from time import time, sleep
 
-messages = ('How many times can you press enter in ten seconds?', 'Get ready', 3, 2, 1, 'Go!')
+messages = ['How many times can you press enter in ten seconds?', 'Get ready', 3, 2, 1, 'Go!']
 
 for message in messages:
     sleep(1)
@@ -14,4 +14,4 @@ while time() < end_time:
     input()
     presses += 1
 
-print('You pressed enter %d times' % presses)
+print(f'You pressed enter {presses} times.')
