@@ -11,15 +11,15 @@ y = 0.0
 speed_x = 0.0
 speed_y = 0.0
 
-def world_to_led(coordinate: float):
+def world_to_led(coordinate: float) -> int:
     'Convert a coordinate in world units (-1 to 1) to LED units (0 to 4)'
     return round(scale(coordinate, from_=(-1, 1), to=(0, 4)))
 
-def adjusted_acceleration(acceleration: float):
+def adjusted_acceleration(acceleration: float) -> float:
     enough_tilt = abs(acceleration) > TILT_IGNORE_THRESHOLD
     return acceleration / 1000 / SPEED_DIVISOR if enough_tilt else 0.0
 
-def constrain(value: float, low: float, high: float):
+def constrain(value: float, low: float, high: float) -> float:
     return min(max(value, low), high)
 
 while True:
