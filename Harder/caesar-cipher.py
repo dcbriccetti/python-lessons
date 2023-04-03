@@ -15,7 +15,7 @@ if __name__ == '__main__':
     simple_plaintext = 'The eagle flies at dawn.'
     all_ascii_chars: str = ''.join((chr(n) for n in range(256)))
 
-    for plaintext in (simple_plaintext, all_ascii_chars):
+    for plaintext in [simple_plaintext, all_ascii_chars]:
         cyphertext: str = shift(plaintext, 1)
         print(cyphertext)
         decoded: str = shift(cyphertext, -1)

@@ -4,6 +4,8 @@ from os import mkdir, path
 
 import pandas as pd
 import requests
+from requests import Response
+
 
 def run():
     DATA_URL = 'https://github.com/davidmegginson/ourairports-data/raw/main'
@@ -19,7 +21,10 @@ def run():
             if not path.exists(path_fn):
                 print('fetching', path_fn)
                 with open(path_fn, 'w') as f:
-                    f.write(requests.get(f'{DATA_URL}/{filename}').text)
+                    full_url = f'{DATA_URL}/{filename}'
+                    response: Response = requests.get(full_url)
+                    if response.status_code == 200:
+                        f.write(response.text)
 
     def create_airports_df():
         cols = 'name ident type latitude_deg longitude_deg elevation_ft iso_country iso_region municipality'.split()

@@ -15,7 +15,7 @@ loop = True
 while loop:
     for event in pygame.event.get():
         if event.type == QUIT \
-            or (event.type == KEYDOWN and event.key == K_ESCAPE):
+                or (event.type == KEYDOWN and event.key == K_ESCAPE):
             loop = False
 
     keys = pygame.key.get_pressed()
@@ -38,7 +38,7 @@ while loop:
         birdRect = birdRect.move(0, 5)
         
     if birdRect.colliderect(beeRect):
-        print "Ouch!"
+        print("Ouch!")
 
     screen.fill((0,180,0))
     screen.blit(bee, beeRect.topleft)

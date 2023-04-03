@@ -1,17 +1,10 @@
-common_words = set()
-
 with open('common-words.txt') as file:
-    for line in file:
-        if not line.startswith('#'):
-            common_words.add(line.strip().lower())
+    common_words = {line.strip().lower() for line in file if not line.startswith('#')}
 
 while True:
     sentence = input('-> ')
-    if sentence:
-        words = sentence.split(' ')
-        for word in words:
-            print(word if word.lower() in common_words else '*' * len(word), end=' ')
-
-        print()
-    else:
+    if not sentence:
         break
+    for word in sentence.split(' '):
+        print(word if word.lower() in common_words else '*' * len(word), end=' ')
+    print()

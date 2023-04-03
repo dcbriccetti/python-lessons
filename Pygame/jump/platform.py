@@ -16,7 +16,7 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((500, 300), 0)
 pygame.display.set_caption('Jumping Man')
-#man = pygame.image.load('red-man.png').convert_alpha()
+man = pygame.image.load('red-man.png').convert_alpha()
 
 def floorY():
     ''' The Y coordinate of the floor, where the man is placed '''
@@ -27,7 +27,7 @@ def jumpHeightAtTime(elapsedTime):
     return 0#((-1.0/TIME_AT_PEAK**2)* \
         #((elapsedTime-TIME_AT_PEAK)**2)+1)*JUMP_HEIGHT
 
-#manX = screen.get_width() / 2
+manX = screen.get_width() / 2
 manY = floorY()
 jumping = False
 jumpingHorz = 0
