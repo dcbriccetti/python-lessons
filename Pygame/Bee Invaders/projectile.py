@@ -1,10 +1,10 @@
-import pygame
+from pygame.sprite import Sprite
 from util import loadImage
 
-class Projectile(pygame.sprite.Sprite):
+class Projectile(Sprite):
 
     def __init__(self, x, y):
-        pygame.sprite.Sprite.__init__(self)
+        super().__init__()
         self.image = loadImage('projectile.png')
         self.rect = self.image.get_rect()
         self.x = x

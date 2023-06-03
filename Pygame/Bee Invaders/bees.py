@@ -35,7 +35,7 @@ for x in range(10, screen.get_width(), 100):
 drawing_group.add(player_bee)
 
 pygame.display.set_caption('Bee Invaders')
-pygame.mouse.set_visible(0)
+pygame.mouse.set_visible(False)
 
 clock = pygame.time.Clock()
 angles = (( 45,   0,  -45),
@@ -47,8 +47,7 @@ time_last_fire = 0
 
 while loop:
     for event in pygame.event.get():
-        if event.type == QUIT \
-            or (event.type == KEYDOWN and event.key == K_ESCAPE):
+        if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             loop = False
 
     if randint(1, 800) == 1:
@@ -65,8 +64,7 @@ while loop:
         time_since_fire = time_now - time_last_fire
         if time_since_fire > (.2 if shift else .5):
             time_last_fire = time()
-            projectile = Projectile(player_bee.rect.x + player_bee.rect.width / 2,
-                player_bee.rect.y)
+            projectile = Projectile(player_bee.rect.x + player_bee.rect.width / 2, player_bee.rect.y)
             drawing_group.add(projectile)
             projectiles.add(projectile)
 

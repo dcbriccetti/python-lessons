@@ -21,7 +21,7 @@ class Monster(pygame.sprite.Sprite):
         self.rect = imgRect.move(self.x, self.y)
         if self.x > self.screen_rect.right:
             self.kill()
-        elif (randint(1, 100) == 1):
+        elif randint(1, 100) == 1:
             dropping = MonsterDropping(
                 self.x + imgRect.width / 2 - 15,
                 self.y + imgRect.height * 3 / 4, self.pixels_per_movement)
