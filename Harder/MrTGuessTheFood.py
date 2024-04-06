@@ -1,6 +1,6 @@
 from random import choice
 
-items = ['soup', 'corn', 'milk', 'bread', 'eggs']
+items = ['soup', 'corn', 'milk', 'bread', 'eggs', 'cereal']
 item = choice(items)
 positiveSayings = ['Stay in school!', "Don't do drugs!"]
 
