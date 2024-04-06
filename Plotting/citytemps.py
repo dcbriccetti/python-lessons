@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-cities = ('Walnut Creek', 'Lafayette', 'Moraga')
+cities = ['Walnut Creek', 'Lafayette', 'Moraga']
 y_pos = np.arange(len(cities))
 temperature = 10 + 10 * np.random.rand(len(cities))
 
