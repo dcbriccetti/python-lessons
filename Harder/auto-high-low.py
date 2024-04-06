@@ -1,11 +1,11 @@
 from random import randint
-from math import log2, pow
+from math import log2
 import logging
 logging.basicConfig(format='%(message)s', level=logging.INFO)
 POWERS_OF_TEN_FOR_HIGHEST = range(3, 13, 3)
 NUM_TRIALS = 1000
 
-class AiGuesser:
+class Guesser:
     def __init__(self, highest, smart=False):
         self.low = 1
         self.high = self.highest = highest
@@ -34,7 +34,7 @@ with open('high-low-results.tsv', 'w') as results:
     results.write('Highest\tStrategy\tTrial\tGuesses\n')
 
     for power in POWERS_OF_TEN_FOR_HIGHEST:
-        highest = int(pow(10, power))
+        highest: int = 10 ** power
         logging.info('Between 1 and {0:,} (binary logarithm of {0:,} is {1:.2f}).'.format(
             highest, log2(highest)))
 
@@ -43,7 +43,7 @@ with open('high-low-results.tsv', 'w') as results:
 
             for trial in range(1, NUM_TRIALS + 1):
                 logging.info('Trial %d' % trial)
-                guesser = AiGuesser(highest, smart=smart)
+                guesser = Guesser(highest, smart=smart)
                 number = randint(1, highest)
                 guess = guesser.guess(None)
                 guesses = 1
